@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  app:
+    image: linkace/linkace:simple
+    container_name: linkace-app-1
+    restart: unless-stopped
+    ports:
+      - "7979:80"
+    volumes:
+      - ./.env:/app/.env
+      - ./linkace_logs:/app/storage/logs
+      - ./db:/app/database/db
+      
+volumes:
+  linkace_logs:
